@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="嵌入式竞赛项目知识库" name="description"/>
+<link href="https://chenyilin077-ctrl.github.io/qianrs/30_%E9%A1%B9%E7%9B%AE/%E7%A4%BA%E6%B3%A2%E5%99%A8/%E7%A4%BA%E6%B3%A2%E5%99%A8-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/" rel="canonical"/>
+<link href="../%E7%A4%BA%E6%B3%A2%E5%99%A8-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/" rel="prev"/>
+<link href="../../../40_%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE%E7%B4%A2%E5%BC%95/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>示波器 — 项目总览 - 嵌入式项目知识库</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="嵌入式项目知识库" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="嵌入式项目知识库">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            嵌入式项目知识库
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              示波器 — 项目总览
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="暗色模式" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="暗色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="亮色模式" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="亮色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/chenyilin077-ctrl/qianrs" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  🎛️ 嵌入式开发笔记
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../10_%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C/STM32%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C%E7%B4%A2%E5%BC%95/">
+          
+  
+  
+  10 芯片手册
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/ADC/">
+          
+  
+  
+  20 外设笔记
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+          
+  
+  
+  30 项目
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../40_%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE%E7%B4%A2%E5%BC%95/">
+          
+  
+  
+  40 电路设计
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="嵌入式项目知识库" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="嵌入式项目知识库">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    嵌入式项目知识库
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/chenyilin077-ctrl/qianrs" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    🎛️ 嵌入式开发笔记
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    10 芯片手册
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    10 芯片手册
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10_%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C/STM32%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C%E7%B4%A2%E5%BC%95/">
+<span class="md-ellipsis">
+    
+  
+    STM32 芯片手册索引
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    20 外设笔记
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    20 外设笔记
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/ADC/">
+<span class="md-ellipsis">
+    
+  
+    ADC — 模数转换器
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/DMA/">
+<span class="md-ellipsis">
+    
+  
+    DMA — 直接存储器访问
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/GPIO/">
+<span class="md-ellipsis">
+    
+  
+    GPIO — 通用输入输出
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/I2C/">
+<span class="md-ellipsis">
+    
+  
+    I2C — 集成电路总线
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/NVIC_EXTI/">
+<span class="md-ellipsis">
+    
+  
+    NVIC &amp; EXTI — 中断系统
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/RCC/">
+<span class="md-ellipsis">
+    
+  
+    RCC — 时钟系统
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/SPI/">
+<span class="md-ellipsis">
+    
+  
+    SPI — 串行外设接口
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/TIM/">
+<span class="md-ellipsis">
+    
+  
+    TIM — 定时器 &amp; PWM
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/UART/">
+<span class="md-ellipsis">
+    
+  
+    UART / USART — 通用异步收发
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0%E7%B4%A2%E5%BC%95/">
+<span class="md-ellipsis">
+    
+  
+    外设笔记索引
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    30 项目
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    30 项目
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    二维云台视觉追踪
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    二维云台视觉追踪
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+<span class="md-ellipsis">
+    
+  
+    二维云台 — 硬件架构与通信链路
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">
+<span class="md-ellipsis">
+    
+  
+    踩坑日记 — 二维云台视觉追踪调试实录
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/">
+<span class="md-ellipsis">
+    
+  
+    二维云台视觉追踪 — 项目总览
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    智能家居系统
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    智能家居系统
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85-%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+<span class="md-ellipsis">
+    
+  
+    智能家居 — 三层架构与通信链路
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">
+<span class="md-ellipsis">
+    
+  
+    踩坑日记 — 智能家居系统调试实录
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/">
+<span class="md-ellipsis">
+    
+  
+    智能家居系统 — 项目总览
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    智能导航仪
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    智能导航仪
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA/%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/">
+<span class="md-ellipsis">
+    
+  
+    智能导航仪 — 项目总览
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA/%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+<span class="md-ellipsis">
+    
+  
+    模块通信链路
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA/%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/">
+<span class="md-ellipsis">
+    
+  
+    硬件架构文档
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA/%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">
+<span class="md-ellipsis">
+    
+  
+    踩坑日记 — 智能导航仪调试实录
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    李萨茹图形
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    李萨茹图形
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+<span class="md-ellipsis">
+    
+  
+    李萨茹 — 硬件架构与通信链路
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">
+<span class="md-ellipsis">
+    
+  
+    踩坑日记 — 李萨茹图形测量仪调试实录
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2%E6%B5%8B%E9%87%8F%E4%BB%AA-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/">
+<span class="md-ellipsis">
+    
+  
+    李萨茹图形测量仪 — 项目总览
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    示波器
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    示波器
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E7%A4%BA%E6%B3%A2%E5%99%A8-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+<span class="md-ellipsis">
+    
+  
+    示波器 — 硬件架构与通信链路
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E7%A4%BA%E6%B3%A2%E5%99%A8-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">
+<span class="md-ellipsis">
+    
+  
+    踩坑日记 — 数字示波器调试实录
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    示波器 — 项目总览
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    示波器 — 项目总览
+  
+
+    
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        项目背景
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        核心功能
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        硬件架构
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        定时器分配
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#etr">
+<span class="md-ellipsis">
+      
+        ETR 级联测频原理
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      
+        关键驱动文件
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      
+        相关笔记
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      
+        源代码下载
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    40 电路设计
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    40 电路设计
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../40_%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE%E7%B4%A2%E5%BC%95/">
+<span class="md-ellipsis">
+    
+  
+    电路原理图索引
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        项目背景
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        核心功能
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        硬件架构
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        定时器分配
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#etr">
+<span class="md-ellipsis">
+      
+        ETR 级联测频原理
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      
+        关键驱动文件
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      
+        相关笔记
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      
+        源代码下载
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="_1">示波器 — 项目总览</h1>
+<h2 id="_2">项目背景</h2>
+<ul>
+<li><strong>项目</strong>: 便携式数字示波器</li>
+<li><strong>主控芯片</strong>: STM32F429IGT6（阿波罗 F429 开发板）</li>
+<li><strong>主频</strong>: 180MHz（HSE 25MHz → PLL: M=15, N=216, P=2）</li>
+<li><strong>RTOS</strong>: FreeRTOS (CMSIS-OS v2)</li>
+<li><strong>UI 框架</strong>: TouchGFX</li>
+<li><strong>开发环境</strong>: Keil MDK-ARM + CubeMX + TouchGFX Designer</li>
+</ul>
+<h2 id="_3">核心功能</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>实现方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>波形采集</td>
+<td>ADC1 + DMA2_Stream0 循环模式</td>
+<td>PA0 输入，12bit，200ksps，1024点环形缓冲</td>
+</tr>
+<tr>
+<td>采样触发</td>
+<td>TIM3 (200kHz TRGO)</td>
+<td>90分频 → 2MHz / 10 = 200kHz 精确触发</td>
+</tr>
+<tr>
+<td>高频测频</td>
+<td>TIM1 ETR + TIM2 级联 (48bit)</td>
+<td>PA12 外部信号 → ETR计数 → 级联 16+32=48bit</td>
+</tr>
+<tr>
+<td>周期测频</td>
+<td>TIM5 (2Hz) 差值法</td>
+<td>每500ms 读取级联计数器差值 = 频率Hz</td>
+</tr>
+<tr>
+<td>波形显示</td>
+<td>TouchGFX dynamicGraph</td>
+<td>3点滑动平均 + 200点/帧</td>
+</tr>
+<tr>
+<td>电压测量</td>
+<td>峰值保持(Peak-Hold)</td>
+<td>1024点扫最大值 + 缓慢衰减(10mV/tick)</td>
+</tr>
+<tr>
+<td>频率显示</td>
+<td>智能单位切换</td>
+<td>&lt;1kHz→Hz, &lt;1MHz→kHz, &gt;=1MHz→MHz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">硬件架构</h2>
+<pre class="mermaid"><code>graph TD
+    subgraph "信号输入"
+        PA0_ADC[PA0 - ADC1 IN0&lt;br/&gt;波形采集 0~3.3V]
+        PA12_ETR[PA12 - TIM1 ETR&lt;br/&gt;频率测量 外部信号]
+    end
+
+    subgraph "STM32F429 180MHz"
+        ADC[ADC1 12bit&lt;br/&gt;TIM3 200kHz触发]
+        DMA[DMA2 Stream0&lt;br/&gt;环形缓冲 1024点]
+        TIM1[TIM1 ETR模式&lt;br/&gt;16bit 脉冲计数]
+        TIM2[TIM2 从模式&lt;br/&gt;32bit 溢出计数]
+        TIM5[TIM5 2Hz&lt;br/&gt;差值法算频率]
+    end
+
+    subgraph "UI"
+        GFX[TouchGFX&lt;br/&gt;Screen2View]
+        LCD[LTDC 800x480&lt;br/&gt;RGB888 LCD]
+    end
+
+    PA0_ADC --&gt; ADC --&gt; DMA --&gt; GFX
+    PA12_ETR --&gt; TIM1 --&gt; TIM2 --&gt; TIM5 --&gt; GFX
+    GFX --&gt; LCD</code></pre>
+<h2 id="_5">定时器分配</h2>
+<table>
+<thead>
+<tr>
+<th>定时器</th>
+<th>功能</th>
+<th>配置</th>
+<th>关键参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TIM1</td>
+<td>ETR 外部脉冲计数</td>
+<td>ETRMODE2, PA12, /1</td>
+<td>16bit, 溢出→TRGO→TIM2</td>
+</tr>
+<tr>
+<td>TIM2</td>
+<td>级联溢出计数</td>
+<td>Slave EXTERNAL1, ITR0</td>
+<td>32bit, 48bit 总计数</td>
+</tr>
+<tr>
+<td>TIM3</td>
+<td>ADC 采样触发</td>
+<td>90分频→2MHz, 周期=10</td>
+<td>TRGO 200kHz → ADC</td>
+</tr>
+<tr>
+<td>TIM5</td>
+<td>周期测频</td>
+<td>9000分频→20kHz, 周期=10000</td>
+<td>2Hz, 差值法算频率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="etr">ETR 级联测频原理</h2>
+<div class="highlight"><pre><span></span><code>外部信号 → PA12 → TIM1_ETR → TIM1计数器(+1/脉冲)
+    ↓ (TIM1溢出)
+TIM1_TRGO → ITR0 → TIM2从模式(+1/溢出)
+    ↓ (TIM5 每500ms)
+48bit 绝对计数: high_16(TIM2) &lt;&lt; 16 | low_16(TIM1)
+    ↓
+频率 = (当前计数 - 上次计数) / 0.5s = delta_pulses Hz
+</code></pre></div>
+<blockquote>
+<p>48bit 计数器最大可计 2.8×10^14 个脉冲，足够长时间高精度测量。</p>
+</blockquote>
+<h2 id="_6">关键驱动文件</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Core/Src/adc.c</code></td>
+<td>ADC1 + DMA2_S0 循环模式，TIM3触发</td>
+</tr>
+<tr>
+<td><code>Core/Src/tim.c</code></td>
+<td>TIM1 ETR + TIM2 级联 + TIM3 + TIM5</td>
+</tr>
+<tr>
+<td><code>Core/Src/main.c</code></td>
+<td>系统初始化、TIM5 频率回调</td>
+</tr>
+<tr>
+<td><code>Core/Src/freertos.c</code></td>
+<td>TouchGFX 任务创建</td>
+</tr>
+<tr>
+<td><code>TouchGFX/gui/src/screen2_screen/Screen2View.cpp</code></td>
+<td>波形绘制、峰值保持、频率格式化</td>
+</tr>
+<tr>
+<td><code>TouchGFX/gui/src/model/Model.cpp</code></td>
+<td>TouchGFX Model (tick)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">相关笔记</h2>
+<ul>
+<li><a href="../%E7%A4%BA%E6%B3%A2%E5%99%A8-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">示波器-硬件架构与通信链路</a></li>
+<li><a href="../%E7%A4%BA%E6%B3%A2%E5%99%A8-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">示波器-踩坑日记</a></li>
+</ul>
+<h2 id="_8">源代码下载</h2>
+<p><a href="../%E6%BA%90%E4%BB%A3%E7%A0%81/%E7%A4%BA%E6%B3%A2%E5%99%A8_%E6%BA%90%E4%BB%A3%E7%A0%81.zip">:material-download: 下载源代码 (ZIP)</a></p>
+<blockquote>
+<p>解压后用 STM32CubeMX 打开 .ioc 文件可自动生成 Middlewares 和 Drivers。</p>
+</blockquote>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+</body>
+</html>

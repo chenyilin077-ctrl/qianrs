@@ -1,0 +1,2384 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="嵌入式竞赛项目知识库">
+      
+      
+      
+        <link rel="canonical" href="https://chenyilin077-ctrl.github.io/qianrs/30_%E9%A1%B9%E7%9B%AE/%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA/%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/">
+      
+      
+        <link rel="prev" href="../%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/">
+      
+      
+        <link rel="next" href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>踩坑日记 — 智能导航仪调试实录 - 嵌入式项目知识库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="嵌入式项目知识库" class="md-header__button md-logo" aria-label="嵌入式项目知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            嵌入式项目知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              踩坑日记 — 智能导航仪调试实录
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/chenyilin077-ctrl/qianrs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  🎛️ 嵌入式开发笔记
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../10_%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C/STM32%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C%E7%B4%A2%E5%BC%95/" class="md-tabs__link">
+          
+  
+  
+  10 芯片手册
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/ADC/" class="md-tabs__link">
+          
+  
+  
+  20 外设笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/" class="md-tabs__link">
+          
+  
+  
+  30 项目
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../40_%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE%E7%B4%A2%E5%BC%95/" class="md-tabs__link">
+          
+  
+  
+  40 电路设计
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="嵌入式项目知识库" class="md-nav__button md-logo" aria-label="嵌入式项目知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    嵌入式项目知识库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/chenyilin077-ctrl/qianrs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎛️ 嵌入式开发笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 芯片手册
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    10 芯片手册
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C/STM32%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C%E7%B4%A2%E5%BC%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STM32 芯片手册索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20 外设笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    20 外设笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/ADC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADC — 模数转换器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/DMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DMA — 直接存储器访问
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO — 通用输入输出
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/I2C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I2C — 集成电路总线
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/NVIC_EXTI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIC &amp; EXTI — 中断系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/RCC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RCC — 时钟系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/SPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SPI — 串行外设接口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/TIM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TIM — 定时器 &amp; PWM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/UART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UART / USART — 通用异步收发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0/%E5%A4%96%E8%AE%BE%E7%AC%94%E8%AE%B0%E7%B4%A2%E5%BC%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    外设笔记索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30 项目
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    30 项目
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维云台视觉追踪
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    二维云台视觉追踪
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维云台 — 硬件架构与通信链路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑日记 — 二维云台视觉追踪调试实录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0%E8%A7%86%E8%A7%89%E8%BF%BD%E8%B8%AA/%E4%BA%8C%E7%BB%B4%E4%BA%91%E5%8F%B0-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    二维云台视觉追踪 — 项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    智能家居系统
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    智能家居系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85-%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    智能家居 — 三层架构与通信链路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑日记 — 智能家居系统调试实录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E7%B3%BB%E7%BB%9F/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    智能家居系统 — 项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    智能导航仪
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    智能导航仪
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%99%BA%E8%83%BD%E5%AF%BC%E8%88%AA%E4%BB%AA-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    智能导航仪 — 项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A8%A1%E5%9D%97%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模块通信链路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    硬件架构文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑日记 — 智能导航仪调试实录
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑日记 — 智能导航仪调试实录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-i2c-delay_us" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        坑1：手势模块 I2C 通信不通 — delay_us 时序"看上去对"但实际不对
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="坑1：手势模块 I2C 通信不通 — delay_us 时序&#34;看上去对&#34;但实际不对">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        现象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根因分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    李萨茹图形
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    李萨茹图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    李萨茹 — 硬件架构与通信链路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑日记 — 李萨茹图形测量仪调试实录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2/%E6%9D%8E%E8%90%A8%E8%8C%B9%E5%9B%BE%E5%BD%A2%E6%B5%8B%E9%87%8F%E4%BB%AA-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    李萨茹图形测量仪 — 项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示波器
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    示波器
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A4%BA%E6%B3%A2%E5%99%A8/%E7%A4%BA%E6%B3%A2%E5%99%A8-%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示波器 — 硬件架构与通信链路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A4%BA%E6%B3%A2%E5%99%A8/%E7%A4%BA%E6%B3%A2%E5%99%A8-%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    踩坑日记 — 数字示波器调试实录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%A4%BA%E6%B3%A2%E5%99%A8/%E7%A4%BA%E6%B3%A2%E5%99%A8-%E9%A1%B9%E7%9B%AE%E6%80%BB%E8%A7%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示波器 — 项目总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    40 电路设计
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    40 电路设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86%E5%9B%BE%E7%B4%A2%E5%BC%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    电路原理图索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-i2c-delay_us" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        坑1：手势模块 I2C 通信不通 — delay_us 时序"看上去对"但实际不对
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="坑1：手势模块 I2C 通信不通 — delay_us 时序&#34;看上去对&#34;但实际不对">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        现象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排查过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根因分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决方案
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">踩坑日记 — 智能导航仪调试实录</h1>
+<blockquote>
+<p>记录开发过程中遇到的所有硬件/软件问题、排查过程和解决方案。
+核心经验：<strong>时序图 ≠ 实际波形，示波器是嵌入式调试的终极武器。</strong></p>
+</blockquote>
+<hr />
+<h2 id="1-i2c-delay_us">坑1：手势模块 I2C 通信不通 — delay_us 时序"看上去对"但实际不对</h2>
+<h3 id="_2">日期</h3>
+<p>项目开发中期</p>
+<h3 id="_3">现象</h3>
+<p>PAJ7620U2 手势识别传感器（I2C 地址 0x73）无法正常通信。代码中 I2C 起始信号、数据发送、应答检测的时序图在逻辑上完全正确——起始条件（SCL高→SDA拉低）、8位数据+ACK、停止条件（SCL高→SDA拉高）的代码顺序无误。使用 delay_us(10) 控制 SCL 频率，理论约 50kHz，完全在 PAJ7620U2（支持 400kHz Fast Mode）的规格范围内。</p>
+<p>但实际测试：PAJ7620U2 不应答，IIC_Wait_Ack() 始终返回 1（无应答）。paj7620u2_init() 初始化一直失败。</p>
+<h3 id="_4">排查过程</h3>
+<ol>
+<li><strong>第一步：代码审查</strong></li>
+<li>检查 PAJ7620U2/paj7620u2_iic.c 中的 I2C 时序函数</li>
+<li>GPIO 初始化：PA4(SCL) 和 PA11(SDA) 均配置为推挽输出</li>
+<li>
+<p>逻辑无问题，时序图和程序一模一样</p>
+</li>
+<li>
+<p><strong>第二步：上示波器抓波形</strong></p>
+</li>
+<li>示波器探头 CH1 接 SCL(PA4)，CH2 接 SDA(PA11)</li>
+<li>
+<p>抓取 I2C 起始信号 + 地址字节的波形</p>
+</li>
+<li>
+<p><strong>关键发现</strong></p>
+</li>
+<li>代码中写的是 delay_us(10)，预期产生约 10μs 的延时</li>
+<li>示波器实测：<strong>实际延时约为 15~18μs，而非 10μs！</strong></li>
+<li>SCL 实际频率约 30~35kHz，而非预期的 50kHz</li>
+<li>更致命的是：<strong>SCL 高低电平时间不对称</strong>，低电平明显偏长</li>
+<li>虽然 PAJ7620U2 对 SCL 频率容忍度较高，但实际延时偏差导致某些关键时序窗口（如数据建立/保持时间）不满足要求</li>
+</ol>
+<h3 id="_5">根因分析</h3>
+<p>`
+代码假设:
+  delay_us(10) → 10μs 延时 → SCL周期 ~20μs → f_SCL = 50kHz</p>
+<p>实际情况:
+  delay_us(10) → 实际 15~18μs → SCL周期 ~30μs → f_SCL = 30~35kHz
+`</p>
+<p>delay_us() 基于 SysTick 实现。问题出在：</p>
+<ol>
+<li><strong>delay_init() 的时钟参数与实际系统时钟不匹配</strong></li>
+<li>delay_init(180) 假设 SYSCLK = 180MHz</li>
+<li>
+<p>但 SysTick 的重载值计算依赖 SystemCoreClock，如果 SystemCoreClock 未正确更新为 180MHz（仍为默认 16MHz HSI），则每个 tick 的实际时间远超预期</p>
+</li>
+<li>
+<p><strong>函数调用开销</strong></p>
+</li>
+<li>软件 I2C 的每个 delay_us(10) 调用前后还有 GPIO 翻转指令</li>
+<li>delay_us() 函数本身的进入/退出开销 ≈ 1~3μs（参数越大相对占比越小，但仍有影响）</li>
+<li>
+<p>GPIO 置位/清零指令在 180MHz 下约 5~6 个周期（~30ns），但加上总线访问延迟实际更大</p>
+</li>
+<li>
+<p><strong>中断干扰</strong></p>
+</li>
+<li>SysTick 中断每 1ms 触发一次，会打断 I2C 时序</li>
+<li>USART 中断也可能在 I2C 传输期间抢占</li>
+</ol>
+<h3 id="_6">解决方案</h3>
+<p><strong>示波器实测校准法：</strong></p>
+<p>`c
+// 步骤1: 确认系统时钟
+// 在 main() 开头打印 SystemCoreClock
+printf("SystemCoreClock = %d\n", SystemCoreClock);
+// 如果输出不是 180000000，说明时钟配置有问题</p>
+<p>// 步骤2: 确保 delay_init 参数与实际时钟一致
+delay_init(180);  // 180MHz，必须与 SystemCoreClock 匹配</p>
+<p>// 步骤3: 用示波器实测校准延时值
+// 示波器测量: delay_us(1) 实际约 3μs（含函数开销）
+// 目标 SCL ≈ 50kHz → T ≈ 20μs → 半周期 = 10μs
+// 要达到 10μs 半周期: delay_us(7~8) → 实测 ~10μs
+// 调整 PAJ7620U2 I2C 驱动中的延时值</p>
+<p>// paj7620u2_iic.c 修正
+// #define I2C_DELAY  delay_us(10)  // 原始值，实际延时偏差大</p>
+<h1 id="define-i2c_delay-delay_us7-scl-50khz">define I2C_DELAY  delay_us(7)      // 修正后，实测 SCL ≈ 50kHz</h1>
+<h3 id="_7">最终效果</h3>
+<ul>
+<li>修正 delay_us 参数后，示波器实测 SCL 稳定在 ~50kHz</li>
+<li>PAJ7620U2 正常应答，I2C 通信恢复</li>
+<li>paj7620u2_init() 初始化成功</li>
+</ul>
+<h3 id="_8">经验教训</h3>
+<blockquote>
+<p><strong>时序图正确 ≠ 实际波形正确。</strong> 代码中的延迟是"最少等待时间"，实际耗时 = 函数调用开销 + 循环执行时间 + 中断抢占时间。<strong>必须用示波器验证</strong>，不能仅凭代码逻辑推断。这也是为什么有时候时序图和程序看起来一模一样，但示波器测出来的延时时间就是和设定的时间不符。</p>
+</blockquote>
+<hr />
+<h2 id="2-systick-vs-tim6">坑2：两套延时系统互相冲突 — SysTick vs TIM6</h2>
+<h3 id="_9">日期</h3>
+<p>项目开发中期</p>
+<h3 id="_10">现象</h3>
+<p>DHT11 温湿度读数偶尔出现全 0 或校验失败。而 I2C 通信在 DHT11 读取期间会出现偶发性 ACK 失败。</p>
+<h3 id="_11">排查过程</h3>
+<ol>
+<li><strong>发现项目中存在两套延时系统</strong></li>
+<li>BSP/delay/delay.c — 基于 SysTick，用于 I2C 和主循环</li>
+<li>
+<p>BSP/DHT11/delay.c — 基于 TIM6，DHT11 专用</p>
+</li>
+<li>
+<p><strong>TIM6 延时分析</strong>
+   <code>c
+   // BSP/DHT11/delay.c
+   void Delay_us(uint16_t us)
+   {
+       // 使用 TIM6 硬件计数器实现微秒延时
+       // TIM6 挂载在 APB1(45MHz)
+       // 预分频: 45-1=44 → 计数器时钟 = 1MHz (1 tick = 1μs)
+       __HAL_TIM_SET_COUNTER(&amp;htim6, 0);
+       while(__HAL_TIM_GET_COUNTER(&amp;htim6) &lt; us);
+   }</code></p>
+</li>
+<li>
+<p><strong>示波器测量</strong></p>
+</li>
+<li>用示波器同时监测 PC10(DHT11) 和 PA4(SCL)</li>
+<li>发现：DHT11 通信期间（约 25ms），SysTick 中断仍在触发</li>
+<li>如果 SysTick 中断处理时间较长，会挤占 TIM6 延时循环的执行</li>
+<li>导致 DHT11 读时序中某些关键位采样时机偏移</li>
+</ol>
+<h3 id="_12">根因分析</h3>
+<p>两套延时系统各自计时，但<strong>共用同一个 CPU</strong>：</p>
+<p><code>时间轴:
+|-- DHT11 起始信号(18ms低电平) --|-- DHT11 数据读取 --|
+        ↑ SysTick中断(1ms)     ↑ SysTick中断干扰TIM6延时</code></p>
+<p>DHT11 的 Delay_us() 是一个<strong>忙等循环</strong>（while 循环读 TIM6 计数器），在等待期间：
+- SysTick 中断到来 → CPU 跳转执行中断服务程序 → 中断返回继续 while 循环
+- 中断处理期间的耗时<strong>不被 TIM6 计数</strong>（TIM6 在硬件层面继续计数）
+- 但 CPU 从 while 循环中"分心"了，如果中断处理时间 + 恢复时间超过 1 个 TIM6 tick(1μs)，就会造成时序抖动</p>
+<h3 id="_13">解决方案</h3>
+<p>`c
+// 方案1: DHT11读取期间关全局中断（简单粗暴但有效）
+uint8_t DHT11_Read_Data(uint8_t <em>temp, uint8_t </em>humi)
+{
+    __disable_irq();  // 关中断，保证时序不被干扰</p>
+<pre><code>// ... DHT11 读取逻辑 ...
+
+__enable_irq();   // 恢复中断
+return result;
+</code></pre>
+<p>}</p>
+<p>// 方案2: 使用 DWT 周期计数器（更精确，不依赖额外定时器）
+void DWT_Delay_us(uint32_t us)
+{
+    uint32_t start = DWT-&gt;CYCCNT;
+    uint32_t ticks = us * (SystemCoreClock / 1000000);
+    while ((DWT-&gt;CYCCNT - start) &lt; ticks);
+}
+`</p>
+<h3 id="_14">最终效果</h3>
+<p>采用方案1（关中断），DHT11 读数稳定，不再出现校验错误。</p>
+<h3 id="_15">经验教训</h3>
+<blockquote>
+<p>多套延时系统共存时，<strong>必须考虑中断对忙等延时的影响</strong>。对时序敏感的通信协议（如单总线），应关中断或用不受中断影响的硬件计时器。</p>
+</blockquote>
+<hr />
+<h2 id="3paj7620u2">坑3：PAJ7620U2 手势传感器初始化失败 — 上电时序不足</h2>
+<h3 id="_16">日期</h3>
+<p>项目开发后期</p>
+<h3 id="_17">现象</h3>
+<p>PAJ7620U2 有时能正常初始化，有时 paj7620u2_init() 返回失败，即使代码中已有 while(!paj7620u2_init()) 重试循环。上电后第一次初始化几乎必失败。</p>
+<h3 id="_18">排查过程</h3>
+<ol>
+<li>
+<p><strong>代码分析</strong>
+   <code>c
+   // paj7620u2_iic.c — 独立的 I2C 驱动
+   // PA4 = SCL, PA11 = SDA
+   // delay_us(10) → SCL ≈ 50kHz</code></p>
+</li>
+<li>
+<p><strong>示波器抓上电波形</strong></p>
+</li>
+<li>抓取 VCC 上电到 paj7620u2_init() 首次 I2C 通信的时间间隔</li>
+<li>发现：MCU 启动后约 50ms 就开始初始化 PAJ7620U2</li>
+<li>
+<p>但 PAJ7620U2 数据手册要求上电后至少等待 <strong>100ms</strong> 才能通信</p>
+</li>
+<li>
+<p><strong>I2C 波形检查</strong></p>
+</li>
+<li>SCL 频率约 50kHz，符合 PAJ7620U2 支持的 400kHz Fast Mode</li>
+<li>但上电后首次 I2C 通信，PAJ7620U2 不应答（NACK）</li>
+<li>第二次重试通常恢复，说明是上电就绪问题，非 I2C 协议问题</li>
+</ol>
+<h3 id="_19">根因分析</h3>
+<p>PAJ7620U2 内部有一个上电复位(POR)和晶振起振的过程：
+- 上电 → 内部 LDO 稳定(约 10ms) → 晶振起振(约 50ms) → 数字逻辑复位(约 30ms)
+- 总计需要约 <strong>90~100ms</strong> 才能接受 I2C 通信
+- 代码在 main() 中过早调用 paj7620u2_init()，此时传感器尚未就绪</p>
+<h3 id="_20">解决方案</h3>
+<p>`c
+// 在 main() 中，初始化 PAJ7620U2 之前增加延时
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();
+    // ... 其他初始化 ...</p>
+<pre><code>// PAJ7620U2 上电等待（必须在 GPIO 初始化后）
+delay_ms(150);  // 留足余量，确保传感器就绪
+
+// 然后再初始化
+while(!paj7620u2_init())
+{
+    printf("PAJ7620U2 init failed, retrying...\r\n");
+    delay_ms(50);
+}
+printf("PAJ7620U2 init success!\r\n");
+
+// ... 继续其他初始化 ...
+</code></pre>
+<p>}
+`</p>
+<h3 id="_21">最终效果</h3>
+<p>首次上电 PAJ7620U2 初始化成功率 100%。</p>
+<h3 id="_22">经验教训</h3>
+<blockquote>
+<p>传感器上电后有启动时间！<strong>查数据手册的上电时序要求</strong>，在初始化前用 delay_ms() 等待。重试循环能兜底，但不能替代正确的上电等待。</p>
+</blockquote>
+<hr />
+<h2 id="4dht11-0">坑4：DHT11 读数全0 — 单总线时序边沿不陡</h2>
+<h3 id="_23">日期</h3>
+<p>项目开发中期</p>
+<h3 id="_24">现象</h3>
+<p>DHT11 偶尔能读到正确数据，但大部分时候返回全 0（温度=0，湿度=0）。重新上电后有时恢复正常。</p>
+<h3 id="_25">排查过程</h3>
+<ol>
+<li><strong>检查 DHT11 数据引脚配置</strong></li>
+<li>PC10 需要在输入/输出模式之间切换</li>
+<li>输出模式：推挽输出（拉低总线发起始信号）</li>
+<li>
+<p>输入模式：浮空输入 + 外部上拉（读取 DHT11 响应）</p>
+</li>
+<li>
+<p><strong>示波器抓单总线波形</strong></p>
+</li>
+<li>MCU 发 18ms 低电平起始信号 → 正常</li>
+<li>DHT11 响应 80μs 低电平 + 80μs 高电平 → 正常</li>
+<li><strong>但数据位波形边沿明显变缓</strong>，上升时间过长</li>
+<li>
+<p>某些数据位的 26~28μs（逻辑"1"）和 70μs（逻辑"0"）边界模糊</p>
+</li>
+<li>
+<p><strong>测量上拉电阻</strong></p>
+</li>
+<li>PC10 外部上拉电阻：10kΩ</li>
+<li>DHT11 模块本身也有 4.7kΩ 上拉</li>
+<li>并联后实际约 3.2kΩ，理论上可以</li>
+<li>但 PCB 走线较长（约 15cm），寄生电容较大</li>
+</ol>
+<h3 id="_26">根因分析</h3>
+<p>单总线上升沿由 RC 充电曲线决定：</p>
+<p>`
+τ = R_pullup × C_total
+C_total = C_pin + C_pcb + C_dht11_input ≈ 15~30pF
+R_pullup = 3.2kΩ
+τ ≈ 3.2kΩ × 25pF ≈ 80ns</p>
+<p>上升时间 ≈ 2.2τ ≈ 176ns  ← 看起来还行</p>
+<p>但实际测量发现：
+- PCB 走线寄生电容远大于预期（约 50pF）
+- DHT11 模块引脚有 ESD 保护二极管额外电容
+- 实际 τ ≈ 3.2kΩ × 80pF ≈ 256ns
+- 上升时间 ≈ 560ns  ← 对 26μs 的窗口来说已经偏慢
+`</p>
+<p>逻辑"1" = 26~28μs 低电平 + 高电平，低电平后上升沿太慢导致 MCU 在采样窗口内读到模糊电平。</p>
+<h3 id="_27">解决方案</h3>
+<p>`c
+// 方案1: 减小上拉电阻（硬件修改）
+// 在 PC10 对 3.3V 并联一个 1kΩ 电阻
+// 等效上拉 ≈ 750Ω, 上升时间 ≈ 130ns</p>
+<p>// 方案2: 调整 GPIO 速度等级（软件修改）
+// 在 GPIO 初始化中
+GPIO_InitStruct.Pin = GPIO_PIN_10;
+GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+GPIO_InitStruct.Pull = GPIO_NOPULL;
+GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;  // 最高速度等级
+HAL_GPIO_Init(GPIOC, &amp;GPIO_InitStruct);
+`</p>
+<h3 id="_28">最终效果</h3>
+<p>硬改上拉电阻 + 提高 GPIO 速度等级后，DHT11 读数稳定。</p>
+<h3 id="_29">经验教训</h3>
+<blockquote>
+<p>单总线通信中，<strong>上升沿速度取决于 RC 时间常数</strong>。走线长、寄生电容大会拖慢上升沿。示波器看波形边沿是诊断关键。</p>
+</blockquote>
+<hr />
+<h2 id="_30">总结：嵌入式通信调试的黄金法则</h2>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>法则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>看波形，别看代码</strong></td>
+<td>代码逻辑正确不代表实际信号正确</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>测时间，别靠估算</strong></td>
+<td>delay_us(2) ≠ 实际 2μs，示波器光标测量</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>查上电时序</strong></td>
+<td>每个传感器都有上电就绪时间</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>关中断测时序</strong></td>
+<td>中断是时序抖动的最大来源</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>查 RC 影响</strong></td>
+<td>边沿速度由 R_pullup × C_parasitic 决定</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>示波器是嵌入式工程师的第二双眼睛。用代码猜想一万次，不如示波器抓一次波形。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
