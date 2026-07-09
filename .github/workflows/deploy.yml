@@ -15,8 +15,13 @@ jobs:
           python-version: "3.x"
       - run: pip install mkdocs mkdocs-material mkdocs-roamlinks-plugin mkdocs-mermaid2-plugin
       - run: mkdocs build
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          enable_jekyll: false
+      - name: Deploy to gh-pages
+        run: |
+          cd site
+          git init
+          git checkout -b gh-pages
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "deploy"
+          git push -f "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
