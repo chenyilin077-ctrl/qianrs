@@ -1,6 +1,6 @@
 ﻿site_name: 嵌入式项目知识库
 site_description: 嵌入式竞赛项目知识库
-site_url: https://YOUR_GITEE_USERNAME.gitee.io/YOUR_REPO/
+site_url: https://chenyilin077-ctrl.github.io/qianrs/
 theme:
   name: material
   language: zh
@@ -25,6 +25,33 @@ theme:
         name: 亮色模式
 
 docs_dir: "E:/Obsidian Vault"
+
+exclude_docs: |
+  PCB源代码
+  MDK-ARM
+  TouchGFX
+  Middlewares
+  Drivers
+  .obsidian
+  .claude
+  .claudian
+  99_Templates
+  *.pdf
+  *.c
+  *.h
+  *.cpp
+  *.o
+  *.d
+  *.crf
+  *.ioc
+  *.s
+  *.ld
+  *.lst
+  *.bin
+  *.hex
+  *.axf
+  *.dbgdt
+  *.dbgconf
 
 plugins:
   - search
