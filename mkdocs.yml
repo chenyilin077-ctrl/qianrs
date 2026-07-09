@@ -1,0 +1,39 @@
+﻿site_name: 嵌入式项目知识库
+site_description: 嵌入式竞赛项目知识库
+site_url: https://chenyilin077-ctrl.github.io/qianrs/
+repo_url: https://github.com/chenyilin077-ctrl/qianrs
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 亮色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+plugins:
+  - roamlinks
+  - search
+  - mermaid2
+docs_dir: docs
+site_dir: site
