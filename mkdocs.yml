@@ -24,7 +24,7 @@ theme:
         icon: material/brightness-4
         name: 亮色模式
 
-docs_dir: "E:/Obsidian Vault"
+docs_dir: docs
 
 exclude_docs: |
   PCB源代码
@@ -112,3 +112,4 @@ nav:
       - 项目总览: 30_项目/智能家居系统/智能家居-项目总览.md
       - 三层架构: 30_项目/智能家居系统/智能家居-三层架构与通信链路.md
       - 踩坑日记: 30_项目/智能家居系统/智能家居-踩坑日记.md
+
