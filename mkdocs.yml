@@ -1,0 +1,71 @@
+﻿site_name: 智能嵌入式项目库
+site_description: 嵌入式竞赛项目知识库
+site_url: https://YOUR_USERNAME.github.io/YOUR_REPO/
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 亮色模式
+
+docs_dir: "E:/Obsidian Vault"
+
+plugins:
+  - search
+  - roamlinks
+  - mermaid2
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - admonition
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - 首页: index.md
+  - 智能导航仪:
+    - 项目总览: 30_项目/智能导航仪/智能导航仪-项目总览.md
+    - 硬件架构: 30_项目/智能导航仪/硬件架构文档.md
+    - 通信链路: 30_项目/智能导航仪/模块通信链路.md
+    - 踩坑日记: 30_项目/智能导航仪/踩坑日记.md
+  - 李萨茹图形测量仪:
+    - 项目总览: 30_项目/李萨茹图形/李萨茹图形测量仪-项目总览.md
+    - 硬件架构: 30_项目/李萨茹图形/李萨茹-硬件架构与通信链路.md
+    - 踩坑日记: 30_项目/李萨茹图形/李萨茹-踩坑日记.md
+  - 二维云台视觉追踪:
+    - 项目总览: 30_项目/二维云台视觉追踪/二维云台-项目总览.md
+    - 硬件架构: 30_项目/二维云台视觉追踪/二维云台-硬件架构与通信链路.md
+    - 踩坑日记: 30_项目/二维云台视觉追踪/二维云台-踩坑日记.md
+  - 示波器:
+    - 项目总览: 30_项目/示波器/示波器-项目总览.md
+    - 硬件架构: 30_项目/示波器/示波器-硬件架构与通信链路.md
+    - 踩坑日记: 30_项目/示波器/示波器-踩坑日记.md
+  - 智能家居系统:
+    - 项目总览: 30_项目/智能家居系统/智能家居-项目总览.md
+    - 三层架构: 30_项目/智能家居系统/智能家居-三层架构与通信链路.md
+    - 踩坑日记: 30_项目/智能家居系统/智能家居-踩坑日记.md
